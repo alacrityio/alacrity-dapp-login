@@ -1,4 +1,4 @@
-var CryptoJS = require("crypto-js");
+let CryptoJS = require("crypto-js");
 
 export default class DappLoginService {
     constructor(){}
@@ -9,18 +9,18 @@ export default class DappLoginService {
         else        pin = prompt("ERROR DECRYPTING: Please try again...\n\nDecrypt login data with your pin from Alacrity Companion Wallet\n");
 
         if (pin){
-            var decrypted : any;
+            let decrypted : any;
             try   { decrypted = JSON.parse(CryptoJS.AES.decrypt(data, pin).toString(CryptoJS.enc.Utf8)); }
             catch { console.log("DECRYPT FAILED, TRY AGAIN 1"); if (pin) this.open(data, true); }
 
             if (decrypted && decrypted.email && decrypted.password && decrypted.mnemonic){
-                var xhr = new XMLHttpRequest();
+                let xhr = new XMLHttpRequest();
                 xhr.onload = function () {
                     if (xhr.status >= 200 && xhr.status < 300) {
-                        var res = JSON.parse(xhr.responseText).data;
+                        let res = JSON.parse(xhr.responseText).data;
                         console.log(res);
-                        var userData : any = {};
-                        var keys = [];
+                        let userData : any = {};
+                        let keys = [];
 
                         if (/ID-/g.test(res.account.Address)) {
                             const addresses = [];
@@ -37,9 +37,9 @@ export default class DappLoginService {
                         }
 
                         new Promise((resolve) => {
-                            var xhr2 = new XMLHttpRequest();
+                            let xhr2 = new XMLHttpRequest();
                             xhr2.onload = function () {
-                                var responseGAIA = JSON.parse(xhr2.responseText);
+                                let responseGAIA = JSON.parse(xhr2.responseText);
                                 console.log("responseGAIA", responseGAIA);
 
                                 if(xhr2.status == 200) {
