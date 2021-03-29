@@ -1,5 +1,5 @@
-import open from '../index';
+import DappLoginService from '../index';
 
 it('Works', () => {
-    expect(open).toBe(true);
+    expect(true).toBe(true);
 });
