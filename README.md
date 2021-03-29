@@ -1,14 +1,15 @@
-# NPM TypeScript Module Boilerplate
+# Alacrity DApp Login
 
-> Note: This module should **not** be required!
+*Allow Alacrity DApps to handle login redirects from the Alacrity Companion Wallet and store relevant user data in local storage.*
 
-### What is it?
+## Usage 
 
-This is the boilerplate that you can use to build your awesome NPM modules using TypeScript ✨
+    npm i alacrity-dapp-login --save
 
-### How to use it?
+Install this node package to your decentralized application to handle login requests with Alacrity.
 
-There are 2 ways to use it:
-
-1. Go to the [repository page](https://github.com/uWynell/typescript-module-boilerplate) and press the green **"Use this template"** button.
-2. Run the following command in the terminal: ```npx degit uWynell/typescript-module-boilerplate```
+1. Add a "Login with Alacrity" button to your dApp with the link: 'alacrity://login/<YOUR-DAPP-NAME>'
+2. This link should open the Alacrity Companion Wallet (assuming the wallet is installed)
+3. Verify the login request on your wallet with your wallet pin
+4. You will be redirected back to your dApp and prompted to decrypt login data with your wallet pin
+5. Enter pin and the module will login with Alacrity and store all relevant user data in local storage under 'userData'

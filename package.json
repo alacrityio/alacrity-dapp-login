@@ -1,7 +1,7 @@
 {
-  "name": "typescript-package-boilerplate",
-  "version": "0.1.0",
-  "description": "TypeScript NPM Module Boilerplate",
+  "name": "alacrity-dapp-login",
+  "version": "1.0.0",
+  "description": "Allow Alacrity DApps to handle login redirects from the Alacrity Companion Wallet and store relevant user data in local storage.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -16,20 +16,23 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
+  "dependencies": {
+    "crypto-js": "^3.3.0"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uWynell/typescript-package-boilerplate.git"
+    "url": "git+https://github.com/alacrityio/alacrity-dapp-login"
   },
   "keywords": [
-    "boilerplate",
-    "typescript"
+    "alacrity",
+    "dapp"
   ],
-  "author": "Wynell",
-  "license": "MIT",
+  "author": "siliconswampio",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/uWynell/typescript-package-boilerplate/issues"
+    "url": "https://github.com/alacrityio/alacrity-dapp-login/issues"
   },
-  "homepage": "https://github.com/uWynell/typescript-package-boilerplate#readme",
+  "homepage": "https://github.com/alacrityio/alacrity-dapp-login#readme",
   "devDependencies": {
     "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
