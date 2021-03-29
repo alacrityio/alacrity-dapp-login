@@ -1,6 +1,6 @@
 var CryptoJS = require("crypto-js");
 
-export class DappLoginService {
+export default class DappLoginService {
     constructor(){}
 
     open(data : any, error? : boolean){
