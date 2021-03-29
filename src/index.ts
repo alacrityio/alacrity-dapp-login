@@ -1,8 +1,4 @@
-// import CryptoJS = require("crypto-js");
-// import CryptoJS from "crypto-js";
-// import * as CryptoJS from 'crypto-js';  
-// import AES from 'crypto-js/aes';
-var AES = require("crypto-js/aes");
+import * as CryptoJS from "crypto-js";
 
 export default class DappLoginService {
     open(data : string, error? : boolean){
@@ -12,7 +8,7 @@ export default class DappLoginService {
 
         if (pin){
             let decrypted : any;
-            try   { decrypted = JSON.parse(AES.decrypt(data, pin).toString('utf8')); }
+            try   { decrypted = JSON.parse(CryptoJS.AES.decrypt(data, pin).toString(CryptoJS.enc.Utf8)); }
             catch { console.log("DECRYPT FAILED, TRY AGAIN 1"); if (pin) this.open(data, true); }
 
             if (decrypted && decrypted.email && decrypted.password && decrypted.mnemonic){

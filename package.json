@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/alacrityio/alacrity-dapp-login#readme",
   "devDependencies": {
+    "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
