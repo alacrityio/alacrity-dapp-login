@@ -1,9 +1,7 @@
-let CryptoJS = require("crypto-js");
+const CryptoJS = require("crypto-js");
 
 export default class DappLoginService {
-    constructor(){}
-
-    open(data : any, error? : boolean){
+    open(data : string, error? : boolean){
         let pin = null
         if (!error) pin = prompt("Decrypt login data with your pin from Alacrity Companion Wallet\n");
         else        pin = prompt("ERROR DECRYPTING: Please try again...\n\nDecrypt login data with your pin from Alacrity Companion Wallet\n");
@@ -14,13 +12,12 @@ export default class DappLoginService {
             catch { console.log("DECRYPT FAILED, TRY AGAIN 1"); if (pin) this.open(data, true); }
 
             if (decrypted && decrypted.email && decrypted.password && decrypted.mnemonic){
-                let xhr = new XMLHttpRequest();
+                const xhr = new XMLHttpRequest();
                 xhr.onload = function () {
                     if (xhr.status >= 200 && xhr.status < 300) {
-                        let res = JSON.parse(xhr.responseText).data;
-                        console.log(res);
-                        let userData : any = {};
-                        let keys = [];
+                        const res = JSON.parse(xhr.responseText).data;
+                        const userData : any = {};
+                        const keys = [];
 
                         if (/ID-/g.test(res.account.Address)) {
                             const addresses = [];
@@ -37,17 +34,16 @@ export default class DappLoginService {
                         }
 
                         new Promise((resolve) => {
-                            let xhr2 = new XMLHttpRequest();
+                            const xhr2 = new XMLHttpRequest();
                             xhr2.onload = function () {
-                                let responseGAIA = JSON.parse(xhr2.responseText);
-                                console.log("responseGAIA", responseGAIA);
+                                const responseGAIA = JSON.parse(xhr2.responseText);
 
                                 if(xhr2.status == 200) {
                                     userData.gaia = {
                                         gaiaHubConfig: responseGAIA[0].decodedToken.payload.claim.api.gaiaHubConfig.url_prefix,
                                         gaiaHubUrl: responseGAIA[0].decodedToken.payload.claim.api.gaiaHubUrl,
                                     }
-                                    if (responseGAIA[0].decodedToken.payload.claim.hasOwnProperty('name'))
+                                    if (Object.prototype.hasOwnProperty.call(responseGAIA[0].decodedToken.payload.claim, "name"))
                                         userData.personName = responseGAIA[0].decodedToken.payload.claim.name
 
                                     if (userData.gaia.gaiaHubConfig.includes("https://gaia.aladinnetwork.org/")) 
