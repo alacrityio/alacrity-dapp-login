@@ -1,5 +1,5 @@
 import DappLoginService from '../index';
 
 it('Works', () => {
-    expect(DappLoginService.hasOwnProperty('open')).toBe(true);
+    expect(DappLoginService).toBe(true);
 });
