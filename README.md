@@ -8,7 +8,7 @@
 
 Install this node package to your decentralized application to handle login requests with Alacrity.
 
-1. Add a "Login with Alacrity" button to your dApp with the link: 'alacrity://login/<YOUR-DAPP-NAME>'
+1. Add a "Login with Alacrity" button to your dApp with the link: 'alacrity://login/YOUR-DAPP-NAME'
 2. This link should open the Alacrity Companion Wallet (assuming the wallet is installed)
 3. Verify the login request on your wallet with your wallet pin
 4. You will be redirected back to your dApp and prompted to decrypt login data with your wallet pin
